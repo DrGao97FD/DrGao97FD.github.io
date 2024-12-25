@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>圣诞树 for kai</title>
+		<style>
+			html,
+			body {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			#main {
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+
+			#video1 {
+				width: 100%;
+				height: 100%;
+			}
+
+			.hidden {
+				display: none;
+			}
+		</style>
+
+	</head>
+	<body id="app">
+	<a style="position: fixed; top: 30%; right: 100px; width: 350px;display: flex; height: 350px; z-index: 1000;flex-direction: column; background: linear-gradient(to bottom, rgba(2, 251, 93, 0.3), rgba(157, 245, 194, 0.3)); border-radius: 50%; padding: 1.0px;justify-content: center; text-align: center; color: #ddd; text-decoration: none; line-height: 70px; font-size: 50px; font-family: 'Comic Sans MS', cursive;">My cake<br>Merry Christmas！</a>
+	<a style="position: fixed; top: 30%; left: 100px; width: 350px;display: flex; height: 350px; z-index: 1000;flex-direction: column; background: linear-gradient(to bottom, rgba(248, 0, 0, 0.3), rgba(250, 160, 160, 0.3)); border-radius: 50%; padding: 1.0px;justify-content: center; text-align: center; color: #ddd; text-decoration: none; line-height: 70px; font-size: 50px; font-family: 'Comic Sans MS', cursive;">Only for<br>Xinyang Kai！</a>
+
+	<!-- <a style="position: fixed; top: 10%; right: 100px; width: 400px;display: flex; height: 200px; z-index: 1000;flex-direction: column; background: linear-gradient(to bottom, rgba(247, 0, 0, 0.7), rgba(255, 189, 189, 0.7)); border-radius: 50%; padding: 1.0px;justify-content: center; text-align: center; color: #ddd; text-decoration: none; line-height: 70px; font-size: 50px;">开欣扬<br>圣诞快乐！</a> -->
+		<div id="main">
+			<video id="video1" muted="muted" autoplay="autoplay" loop="loop" src="./video/chrismas.mp4">
+			</video>
+			<audio id="music1" autostart="true" loop="loop" preload="auto" controls hidden="true">
+				<source src="./music/jinniandongtianpeizhewoba.mp3"></source>
+			</audio>
+
+		</div>
+
+
+	</body>
+	<script type="text/javascript">
+		var video = document.getElementById("video1");
+		video.playbackRate *= 0.8;
+		video.play();
+		$(function() {
+			// var video = document.getElementById("video1");
+			// video.src = "";
+			// video.play();
+
+			// var music = document.getElementById("music1");
+			// music.src = "";
+			// music.play();
+		});
+		video.play();
+    // 页面加载完成时弹出提示信息
+		window.onload = function () {
+			alert("欢迎来到圣诞树页面，希望你在这里度过愉快时光！");
+		};
+		$(function () {
+			// var video = document.getElementById("video1");
+			// video.src = "";
+			// video.play();
+
+			// var music = document.getElementById("music1");
+			// music.src = "";
+			// music.play();
+		});
+	</script>
+	<script>
+		var myAuto = document.getElementById('music1');
+		var app = document.getElementById("app");
+		// 监听事件
+		app.addEventListener("mousemove", function() {
+			console.log("played");
+			myAuto.play();
+		}, true);
+
+		// 用定时器触发事件
+		setInterval(function() {
+			if ("createEvent" in document) {
+				var evt = document.createEvent("HTMLEvents");
+				evt.initEvent("mousemove", false, true);
+				app.dispatchEvent(evt);
+			} else{
+				app.fireEvent("onmousemove");
+			}
+		}, 1000);
+	</script>
+</html>
